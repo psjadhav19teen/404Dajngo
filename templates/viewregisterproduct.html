@@ -1,0 +1,41 @@
+{% include 'header.html' %}
+<title>Ekart|MyProducts</title>
+<div class="container">
+    <div class="row">
+        <center>
+            <h2>My Products</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Image</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in myproducts %}
+                    <tr>
+                        <th>{{item.userid}}</th>
+                        <th>{{item.product_id}}</th>
+                        <th>{{item.product_name}}</th>
+                        <th>{{item.category}}</th>
+                        <th>{{item.desc}}</th>
+                        <th>{{item.price}}</th>
+                        <th><img src="{{item.image.url}}" alt="{{item.product_name}}" width="100px"></th>
+                        <th><a href="/updateproducts/{{item.product_id}}">Update</a></th>
+                        <th><a href="/deleteregisterproduct/{{item.product_id}}">Delete</a></th>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </center>
+    </div>
+</div>
+
+{% include 'footer.html' %}

@@ -1,0 +1,37 @@
+{% include 'header.html' %}
+<title>Ekart|Orders</title>
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 p-3">
+            <div class="row">
+                {%  for item in allorders %}
+                <div class="col-md-4 mb-4">
+                        <div class="card" style="width: 18rem;" >
+                        <img src="{{item.product_id.image.url}}" class="card-img-top" alt="{{item.product_name}}" width="50px" height="150px">
+                        <div class="card-body">
+                          <h5 class="card-title">Order ID: {{item.orderid}}</h5>
+                          <h5 class="card-text">Product Name: {{item.product_id.product_name}}</h5>
+                          <p class="card-text">QTY: {{item.qty}}</p>
+                          <p class="card-text">Amount Paid: {{item.product_id.price}}</p>
+                                                    
+                        </div>
+                      </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="col-md-3 bg-light p-3">
+            <h5 class="bg-danger text-white p-2">Total Amount Paid</h5>
+            <p><strong>Total ({{items}}):</strong> Rs. {{total}} </p>
+            <hr>
+            <p><strong>Total Amount:</strong> Rs. {{total}} </p>
+            
+        </div>
+        
+
+    </div>
+</div>
+
+{% include 'footer.html' %}
